@@ -1,0 +1,36 @@
+mat-sidenav-container {
+  color: var(--mat-sys-secondary);
+  background-color: var(--mat-sys-surface-container);
+}
+
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80px;
+  color: var(--mat-sys-on-primary);
+  background-color: var(--mat-sys-primary);
+}
+mat-toolbar h2 {
+  display: inline-block;
+}
+mat-toolbar .loginCtrl {
+  font-size: large;
+}
+mat-toolbar button {
+  font-size: large;
+  margin: 0 10px;
+}
+
+.loginResult {
+  width: 500px;
+  margin: 50px 0 0 calc(50vw - 250px);
+  border: 3px solid;
+  padding-bottom: 15px;
+}
+.loginResultTag {
+  display: inline-block;
+  width: 130px;
+  text-align: right;
+  margin-right: 10px;
+}

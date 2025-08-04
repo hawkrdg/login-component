@@ -1,0 +1,63 @@
+@if (showLoginComponent()) {
+  <div class="divLoginContainer">
+  <!-- <div class="divLoginContainer" [class.hide]="!data.showLogin()"> -->
+    <h3 class="centered">
+      {{isLoggingOut() ? 'Logging Out...' : 'Please Log In...'}}
+    </h3>
+
+    <div class="divUser" (keydown.enter)="login()">
+      @if (!this.isChangingPW()) {
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Login Name...</mat-label>
+          <input #loginTxt matInput [(ngModel)]="userName"/>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>Password...</mat-label>
+          <input matInput [type]="showPassword() ? 'text' : 'password'" [(ngModel)]="userPassword" />
+        </mat-form-field>
+      } @else {
+        <mat-form-field appearance="outline" floatLabel="always">
+          <mat-label>NEW PASSWORD...</mat-label>
+          <input matInput [type]="showPassword() ? 'text' : 'password'" [(ngModel)]="newPassword" />
+        </mat-form-field>
+      }
+
+
+      <button mat-icon-button (click)="showPassword.set(!showPassword())">
+        <mat-icon>{{showPassword() ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </div>
+
+    <div class="divMessage">
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Results...</mat-label>
+        <textarea matInput [class.isError]="isError()" [(ngModel)]="loginMessage"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="divControls">
+      @if (!isChangingPW()) {
+        <button mat-raised-button [disabled]="disableBtns()" (click)="login()">
+          Login...
+        </button>
+      }
+
+      @if (isChangingPW()) {
+        <button mat-raised-button [disabled]="disableBtns()" (click)="savePassword()">
+          Save Password...
+        </button>
+      }
+
+      <button mat-raised-button [disabled]="disableBtns()" (click)="cancel()">
+        Cancel...
+      </button>
+
+      @if (!isChangingPW()) {
+        <button mat-raised-button [disabled]="disableBtns()" (click)="changePassword()">
+          Change Password...
+        </button>
+      }
+    </div>
+  </div>
+}

@@ -1,0 +1,42 @@
+@if (showApp()) {
+  <mat-sidenav-container>
+    <mat-sidenav-content>
+      <mat-toolbar>
+        <div class="themeCtrl">
+          <button mat-raised-button (click)="doTheme(currentTheme() == 'blueGreyTheme' ? 'khakiTheme' : 'blueGreyTheme')">
+            {{currentTheme() == 'blueGreyTheme' ? 'Khaki' : 'Blue-Grey'}}
+          </button>
+          <button mat-raised-button (click)="doLightDark(currentLightDark() == 'lightTheme' ? 'darkTheme' : 'lightTheme')">
+            {{currentLightDark() == 'lightTheme' ? 'Dark' : 'Light'}}
+          </button>
+        </div>
+
+        <h2>{{title}}</h2>
+
+        <div class="loginCtrl">
+          {{loginResult().name}}
+          <button mat-raised-button (click)="login()">
+            {{loginResult().name ? 'Logout' : 'Login'}}
+          </button>
+        </div>
+      </mat-toolbar>
+
+      <div class="loginResult">
+        <h2 class="centered">Login Results...</h2>
+        <p><span class="loginResultTag">Login Status:</span>{{loginResult().loginStatus}}</p>
+        <p><span class="loginResultTag">User Name:</span>{{loginResult().name}}</p>
+        <p><span class="loginResultTag">Roles:</span></p>
+        @for (r of loginResult().roles; track r) {
+          <p><span class="loginResultTag"></span>{{r}}</p>
+        }  
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <!-- login... -->
+  <!-- <app-login [(showLoginComponent)]="showLogin"  -->
+  <app-login [dbEndpoint]="'https://hawkrdg.com/couch/'" 
+             [(loginResult)]="loginResult"
+             [(doLogin)]="handleLogin">
+  </app-login>
+}

@@ -1,0 +1,149 @@
+@use '@angular/material' as mat;
+
+//-- material custom themes...
+//
+@use "../public/BlueGreyTheme.scss" as blue-grey-theme;
+// @use "../../../public/BrickTheme.scss" as brick-theme;
+// @use "../../../public/GreenTheme.scss" as green-theme;
+// @use "../../../public/GreyTheme.scss" as grey-theme;
+@use "../public/KhakiTheme.scss" as khaki-theme;
+// @use "../../../public/OliveTheme.scss" as olive-theme;
+// @use "../../../public/TestTheme.scss" as test-theme;
+
+:root {
+  .blueGreyTheme {
+    @include mat.theme((
+      color: (
+        primary: blue-grey-theme.$primary-palette,
+        tertiary: blue-grey-theme.$tertiary-palette
+      ),
+      typography: Roboto,
+      density: -1
+    ));
+  }
+  
+  // .brickTheme {
+  //   @include mat.theme((
+  //     color: (
+  //       primary: brick-theme.$primary-palette,
+  //       tertiary: brick-theme.$tertiary-palette
+  //     ),
+  //     typography: Roboto,
+  //     density: -1
+  //   ));
+  // }
+  
+  // .greenTheme {
+  //   @include mat.theme((
+  //     color: (
+  //       primary: green-theme.$primary-palette,
+  //       tertiary: green-theme.$tertiary-palette
+  //     ),
+  //     typography: Roboto,
+  //     density: -1
+  //   ));
+  // }
+  
+  // .greyTheme {
+  //   @include mat.theme((
+  //     color: (
+  //       primary: grey-theme.$primary-palette,
+  //       tertiary: grey-theme.$tertiary-palette
+  //     ),
+  //     typography: Roboto,
+  //     density: -1
+  //   ));
+  // }
+
+  .khakiTheme {
+    @include mat.theme((
+      color: (
+        primary: khaki-theme.$primary-palette,
+        tertiary: khaki-theme.$tertiary-palette
+        ),
+        typography: Roboto,
+        density: -1
+      ));
+    }
+      
+  // .oliveTheme {
+  //   @include mat.theme((
+  //     color: (
+  //       primary: olive-theme.$primary-palette,
+  //       tertiary: olive-theme.$tertiary-palette
+  //     ),
+  //     typography: Roboto,
+  //     density: -1
+  //   ));
+  // }
+    
+  .lightTheme {
+    color-scheme: light;
+  }
+  .darkTheme {
+    color-scheme: dark;
+  }
+  
+  //-- icons...
+  //
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../public/media/MaterialIcons-Regular.woff) format('woff');
+  }
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* // Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* // Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* // Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* // Support for IE. */
+    font-feature-settings: 'liga';
+  }
+  
+  //-- theme scroll bars...
+  //
+  * {
+    scrollbar-color: var(--mat-sys-primary) var(--mat-sys-outline-variant);
+    scrollbar-width: auto;
+  }
+  ::-webkit-scrollbar {
+    width: 19px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--mat-sys-outline-variant);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--mat-sys-outline-variant);
+    border-radius: 4px;
+  }
+  
+  //-- get rid of <input type="number"> spinners...
+  // Chrome, Safari, Edge, Opera...
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  // Firefox...
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}

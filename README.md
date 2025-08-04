@@ -15,6 +15,7 @@ And inside the login component:
 ```
 ...export class LoginComponent {
   dbEndpoint = input('');
+  //-- doLogin.set('LOGIN') or doLogin.set('LOGOUT')...
   doLogin = model('');
   loginResult = model<any>();
           .
