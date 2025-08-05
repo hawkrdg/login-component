@@ -33,4 +33,6 @@ doLogin() is bound to an 'effect()' in both the component and the consumer...
 ```
 
 This effect() fires whenever doLogin() changes. In the main app handleLogin(ev) can then load data, enable tabs / pages, etc...
+
+You can view this demo at https://hawkrdg.com/sandbox1
   
